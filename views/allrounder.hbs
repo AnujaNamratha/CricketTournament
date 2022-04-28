@@ -1,0 +1,33 @@
+<h2>{{this.player_id}}</h2>
+
+<table class="table table-bordered table-success table-striped border-primary">
+  <thead class="thead-dark">
+      <h2>ALL ROUNDER TABLE</h2>
+    <tr>
+        <th scope="col">Player Id</th>
+      <th scope="col">Batting Average</th>
+      <th scope="col">No. Of Series</th>
+      <th scope="col">Total Runs</th>
+       <th scope="col">No. Of Wickets</th>
+      <th scope="col">Bowling Type</th>
+      <th scope="col">Economy</th>
+    </tr>
+  </thead>
+  <tbody>
+
+    {{#each rows}}
+      <tr>
+           <th scope="row">{{this.player_id}}</th>
+        <th>{{this.b_avg}}</th>
+        <td>{{this.no_of_series}}</td>
+        <td>{{this.total_runs}}</td>
+         <th>{{this.no_of_wickets}}</th>
+        <td>{{this.type}}</td>
+        <td>{{this.economy}}</td>
+      </tr>
+    {{/each}}
+
+  </tbody>
+</table>
+
+

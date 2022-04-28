@@ -1,0 +1,127 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <div class="container-fluid">
+    <a
+      class="navbar-brand"
+      style="font-size:xx-large; color:#023564; "
+      href="/"
+    ><b>Cricket Tournament</b></a>
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#navbarNav"
+      aria-controls="navbarNav"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div
+      class="collapse navbar-collapse"
+      style="font-size:larger ; color:#023564; "
+      id="navbarNav"
+    >
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link" aria-current="page" href="/">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="/admin">Edit</a>
+        </li>
+
+      </ul>
+
+    </div>
+  </div>
+</nav>
+
+{{#if alert}}
+  <div class="alert alert-success alert-dismissible fade show" role="alert">
+    {{alert}}
+    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+  </div>
+{{/if}}
+
+{{#each rows}}
+  <form
+    class="row g-3 needs-validation"
+    method="post"
+    action="/edit_player/{{this.player_id}}"
+    
+  >
+
+    <div class="col-6">
+      <div class="form-floating mb-3">
+        <input
+          type="text"
+          class="form-control"
+          id="player_id"
+          value="{{this.player_id}}"
+          placeholder="player_id"
+          name="player_id"
+        />
+        <label for="floatingInput">Player Id</label>
+      </div>
+    </div>
+
+    <div class="col-6">
+      <div class="form-floating mb-3">
+        <input
+          type="text"
+          class="form-control"
+          id="pname"
+          value="{{this.pname}}"
+          placeholder="pname"
+          name="pname"
+        />
+        <label for="floatingInput">Player Name</label>
+      </div>
+    </div>
+
+    <div class="col-6">
+      <div class="form-floating mb-3">
+        <input
+          type="text"
+          class="form-control"
+          id="no_of_t20"
+          value="{{this.no_of_t20}}"
+          placeholder="no_of_t20"
+          name="no_of_t20"
+        />
+        <label for="floatingInput">No_of_T20</label>
+      </div>
+    </div>
+
+    <div class="col-6">
+      <div class="form-floating mb-3">
+        <input
+          type="text"
+          class="form-control"
+          id="no_of_odi"
+          value="{{this.no_of_odi}}"
+          placeholder="no_of_odi"
+          name="no_of_odi"
+        />
+        <label for="floatingInput">No_of_ODI</label>
+      </div>
+    </div>
+
+    <div class="col-6">
+      <div class="form-floating mb-3">
+        <input
+          type="text"
+          class="form-control"
+          id="no_of_test"
+          value="{{this.no_of_test}}"
+          placeholder="no_of_test"
+          name="no_of_test"
+        />
+        <label for="floatingInput">No_of_Test</label>
+      </div>
+    </div>
+  </form>
+{{/each}}
+
+<div class="col-12 d-grid">
+  <button class="btn btn-primary" type="submit">Submit</button>
+</div>

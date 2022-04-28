@@ -1,0 +1,32 @@
+CREATE TABLE
+
+
+create table Umpire(uname varchar(20) not null, uid char(10) not null, no_of_matches int, country char(20), primary key(uid));
+
+
+create table captain (cap_id char(10) not null, cap_name varchar(20) not null , wins int ,total_years_of_captaincy int, primary key(cap_id));
+
+
+create table team(team_id char(10) not null,team_name varchar(20) not null, country_name varchar(20) not null, wicket_keeper varchar (20), no_of_wins int, no_of_loss int,no_of_draws int,no_of_batsmen int not null, no_of_bowlers int not null, team_rank int not null,captain_id varchar(10) not null, primary key(team_id) , foreign key(captain_id) references captain(cap_id));
+
+
+create table coach (c_name varchar(20) not null, coach_id char(10) not null, co_team_id char(10) not null, primary key(coach_id), foreign key(co_team_id) references team(team_id));
+
+
+create table matches(match_id char(10) not null,t1_name varchar(20) not null,t2_name varchar(20) not null, status varchar(20) not null, m_date date, stadium varchar (20) not null, m_time time not null, primary key(match_id));
+
+
+create table players(player_id char(10) not null,no_of_t20 int ,no_of_odi int,no_of_test int, pteam_id char(10) not null, primary key(player_id), foreign key(pteam_id) references team(team_id));
+
+
+create table batsmen(b_avg float,no_of_series int , total_runs int,player_id char(10) primary key references players(player_id));
+
+
+create table bowler(no_of_wickets int, type varchar(20) not null, economy int,player_id char(10) primary key references players(player_id));
+
+
+CREATE TABLE `cricket_tournament`.`wicket_keeper` (
+  `wname` VARCHAR(20) NOT NULL,
+  `wteam_id` CHAR(10) NOT NULL,
+  PRIMARY KEY (`wname`, `wteam_id`));
+
